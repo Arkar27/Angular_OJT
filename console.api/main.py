@@ -27,14 +27,17 @@ def login():
             row = cursor.fetchone()
             print('+++++++++++++++++>the input Email is ', row[3])
             # if row and check_password_hash(row[3], userPassword):
+            print('User Password is -----> ', userPassword)
+            print('table Password is -----> ', row[3])
             if (row and row[3] == userPassword):
+            # if row and check_password_hash(row[3], userPassword):
                 status = True
                 print ('success !!!!!!!!!!!!!!!!!!!!')
             else:
                 status = False
                 print('Wrong password!!!!!!!!!!!!!!!!!!')
+            print('status is ------>', status)
             return jsonify({'result': status})
-
             # print('==============> this is testing')
             # print('++++> ', row)
             # return jsonify(row)
