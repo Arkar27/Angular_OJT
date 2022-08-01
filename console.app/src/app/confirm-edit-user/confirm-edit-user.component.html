@@ -1,0 +1,33 @@
+<h2>User Confirm page</h2>
+
+<div class="list-con">
+    <mat-list role="list">
+        <mat-list-item role="listitem">Name</mat-list-item>
+        <mat-list-item role="listitem">Email</mat-list-item>
+        <mat-list-item role="listitem">Password</mat-list-item>
+        <mat-list-item role="listitem">Type</mat-list-item>
+        <mat-list-item role="listitem">Phone</mat-list-item>
+        <mat-list-item role="listitem">Date of birth</mat-list-item>
+        <mat-list-item role="listitem">Address</mat-list-item>
+    </mat-list>
+    <mat-list role="list">
+        <mat-list-item role="listitem">{{name}}</mat-list-item>
+        <mat-list-item role="listitem">{{email}}</mat-list-item>
+        <mat-list-item role="listitem">*******</mat-list-item>
+        <mat-list-item role="listitem" *ngIf="type == '1'">Admin</mat-list-item>
+        <mat-list-item role="listitem" *ngIf="type == '0'">User</mat-list-item>
+        <mat-list-item role="listitem">{{phone}}</mat-list-item>
+        <mat-list-item role="listitem">{{dob |date}}</mat-list-item>
+        <mat-list-item role="listitem">{{address}}</mat-list-item>
+    </mat-list>
+</div>
+
+
+<div class="btn-con">
+    <div class=" btn" >
+        <button mat-raised-button color="primary" (click)="userEdit()"  >Create</button>
+    </div>
+    <div class=" btn">
+        <button mat-raised-button color="warn" routerLink="/edit_user" >Cancle</button>
+    </div>
+</div>

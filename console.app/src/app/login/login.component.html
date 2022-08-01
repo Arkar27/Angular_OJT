@@ -8,9 +8,10 @@
             <mat-label>Email</mat-label>
             <input matInput placeholder="yourname@gmail.com" name="email" id="email" formControlName="email" required [(ngModel)]="personName">
             <mat-error *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
-            <mat-error *ngIf="email.errors?.['required']">
-                This field is required.
+            <mat-error *ngIf="email.errors">
+                Please insert an email.
             </mat-error>
+            
             </mat-error>
         </mat-form-field>
         <mat-divider></mat-divider>
@@ -25,6 +26,7 @@
             <mat-error *ngIf="password.errors?.['required']">
                 This field is required.
             </mat-error>
+            
             </mat-error>
         </mat-form-field>
         <div class="example-button-row">

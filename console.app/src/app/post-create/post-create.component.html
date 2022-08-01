@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="reactiveForm" class="example-form" #f="ngForm" (ngSubmit)="toConfirm()">
+        <h2 class="login-title">Create new member</h2>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" name="title" id="title" formControlName="title"  >
+            <mat-error *ngIf="title?.invalid && (title?.dirty || title?.touched)" class="invalid-feedback">
+            <mat-error *ngIf="title?.errors?.['required']">
+                This field is required.
+            </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Write you sentence." name="description" id="description" formControlName="description"  >
+            <mat-error *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="invalid-feedback">
+            <mat-error *ngIf="description?.errors?.['required']">
+                This field is required.
+            </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid" >Confirm</button>
+        </div>
+    </form>
+</div>

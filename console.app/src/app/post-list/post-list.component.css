@@ -1,0 +1,21 @@
+table.mat-table {
+    width: 100%;
+}
+.container{
+    padding: 20px;
+}
+.table_title{
+    color: #3f51b5;
+    font-size: 30px;
+    font-weight: bold;
+}
+th{
+    font-size: 18px;
+    color: #3f51b5;
+}
+.delete, .edit{
+    transform: scale(0.7);
+}
+.search{
+    margin-right: 20px;
+}

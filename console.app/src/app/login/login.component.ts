@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     private loginService: LoginAuthService,
     private router: Router) {
     this.user = {} as EachUser;
-    localStorage.clear();
+    sessionStorage.clear();
 
    }
 
@@ -53,36 +53,19 @@ export class LoginComponent implements OnInit {
     // this.loginService.logout();
     // localStorage.setItem('token', 'thisisjusttoken')
     this.loginService.login(this.reactiveForm.value.email, this.reactiveForm.value.password).then(res => {
-      if (res) {
+      if (res[0]) {
         console.log("Login Success");
-        this.router.navigate(['/users']);
+        sessionStorage.setItem('userRole', res[1])
+        sessionStorage.setItem('userId', res[2])
+        this.router.navigateByUrl('dashboard');
+      }
+      else {
+        alert('Invalid Credential.')
       }
     }).catch(error => {
+      alert('User does not exit.')
       console.log('error ', error);
       // this.authFailureMessage = this.clientMsg.APPLICATION_ERROR.AUTH;
     });
   }
-  // login(){
-  //   console.log(this.personName);
-  //   console.log(this.personPassword);
-  //   if (this.personName== 'admin' && this.personPassword == '1234' || this.personName== 'user' && this.personPassword == '1234' ) {
-  //     if (this.personName == 'admin') {
-  //       localStorage.setItem('userType', 'admin')
-  //     }
-  //     else {
-  //       localStorage.setItem('userType', 'normalUser')
-  //     }
-  //     localStorage.setItem('session', this.userid)
-  //     this.router.navigateByUrl('dashboard');
-
-  //   }
-  //   else {
-  //     localStorage.setItem('session', '')
-  //     alert('Wrong Credential!')
-  //   }
-  // }
-  
-  
-  
-
 }

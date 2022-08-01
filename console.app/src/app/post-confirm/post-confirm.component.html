@@ -1,0 +1,22 @@
+<h2>Post Confirm page</h2>
+
+<div class="list-con">
+    <mat-list role="list">
+        <mat-list-item role="listitem">Title</mat-list-item>
+        <mat-list-item role="listitem">Description</mat-list-item>
+    </mat-list>
+    <mat-list role="list">
+        <mat-list-item role="listitem">{{title}}</mat-list-item>
+        <mat-list-item role="listitem">{{description}}</mat-list-item>
+    </mat-list>
+</div>
+
+
+<div class="btn-con">
+    <div class=" btn" >
+        <button mat-raised-button color="primary" (click)="postAdd()"  >Create</button>
+    </div>
+    <div class=" btn">
+        <button mat-raised-button color="warn" routerLink="/post_create" >Cancle</button>
+    </div>
+</div>

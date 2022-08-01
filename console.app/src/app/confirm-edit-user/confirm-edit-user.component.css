@@ -1,0 +1,11 @@
+
+.container{
+    display: flex;
+ }
+ .btn-con{
+     display: inline;
+ }
+ .list-con{
+     display: flex;
+ }
+ 

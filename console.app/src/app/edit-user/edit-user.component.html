@@ -1,0 +1,79 @@
+
+
+
+<div class="container">
+    <form [formGroup]="reactiveForm" class="example-form" #f="ngForm" (ngSubmit)="toConfirm()">
+      <h2 class="login-title">Update the member</h2>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Your Name" name="name" id="name" formControlName="name" >
+        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+        <mat-error *ngIf="email.errors?.['required']">
+            This field is required.
+        </mat-error>
+        </mat-error>
+    </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="yourname@gmail.com" name="email" id="email" formControlName="email" [(ngModel)]="mail" value="{{editEmail}}">
+          <mat-error *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+          <mat-error *ngIf="email.errors?.['required']">
+              This field is required.
+          </mat-error>
+          </mat-error>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <select matNativeControl required formControlName="type" *ngIf="editType == '1'">
+        <option value="0">User</option>
+        <option value="1" checked>Admin</option>
+      </select>
+        <select matNativeControl required formControlName="type" *ngIf="editType != '1'">
+          <option value="0" checked>User</option>
+          <option value="1" >Admin</option>
+
+        
+      </select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="calender">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" name="date" id="date" formControlName="date" required 
+      [class.is-invalid]="date?.invalid && (date?.dirty || date?.touched)" placeholder="mm/dd/yyyy" value="{{editDob |date}}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="invalid-feedback">
+        <mat-error *ngIf="date?.errors?.['required']">
+         Pleases insert a date.
+        </mat-error >
+      </mat-error >
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="09xxxxxxxxx" name="phone" id="phone" formControlName="phone" value="{{editPhone}}">
+      <mat-error *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="invalid-feedback">
+      <mat-error *ngIf="phone?.errors?.['required']">
+          This field is required.
+      </mat-error>
+      <mat-error *ngIf="phone?.errors?.['pattern']">
+        Please insert 11 digits.
+    </mat-error>
+      </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Address</mat-label>
+    <input matInput placeholder="Address" name="address" id="address" formControlName="address" value="{{editAddress}}">
+    <mat-error *ngIf="address?.invalid && (address?.dirty || address?.touched)" class="invalid-feedback">
+    <mat-error *ngIf="address?.errors?.['required']">
+        This field is required.
+    </mat-error>
+    </mat-error>
+  </mat-form-field>
+      <div class="example-button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid" >Confirm</button>
+      </div>
+  </form>
+  </div>
+  
